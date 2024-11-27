@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Alphanumeric Check</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Check for Alphanumeric, Dash, or Underscore</h1>
+    <input type="text" id="userInput" placeholder="Enter your string here">
+    <button id="checkButton">Check String</button>
+    <div class="output" id="outputMessage"></div>
+
+    <script>
+        // Get DOM elements
+        const userInput = document.getElementById("userInput");
+        const checkButton = document.getElementById("checkButton");
+        const outputMessage = document.getElementById("outputMessage");
+
+        // Regular expression to check for alphanumeric, dash, or underscore
+        const regex = /[a-zA-Z0-9_-]/;
+
+        // Function to check the string
+        checkButton.addEventListener("click", () => {
+            const input = userInput.value.trim();
+            
+            if (regex.test(input)) {
+                outputMessage.textContent = "String contains alphanumeric, dash, or underscore.";
+            } else {
+                outputMessage.textContent = "String doesn’t contain alphanumeric, dash, or underscore.";
+            }
+        });
+    </script>
+</body>
+</html>
